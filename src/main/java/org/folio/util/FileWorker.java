@@ -1,5 +1,6 @@
 package org.folio.util;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.extern.slf4j.Slf4j;
@@ -40,10 +41,10 @@ public class FileWorker {
         }
     }
 
-    public static ObjectNode getJsonObject(String name) {
+    public static JsonNode getJsonObject(String name) {
         try {
             var file = getResourceFile(name);
-            return (ObjectNode) OBJECT_MAPPER.readTree(file);
+            return OBJECT_MAPPER.readTree(file);
         } catch (IOException e) {
             exitWithError("Failed to map json file value: " + name);
             return null;

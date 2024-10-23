@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static java.lang.String.format;
 import static org.folio.FolioUpdateBibMappingRulesRamsonsApplication.exitWithError;
 
 
@@ -99,7 +100,7 @@ public class HttpWorker {
 
     public void verifyStatus(HttpResponse<?> response, int expectedStatus, String errorMessage) {
         if (response.statusCode() != expectedStatus) {
-            exitWithError(errorMessage + " Response: " + response.body());
+            exitWithError(format("%s, Status code: %s Response: %s", errorMessage, response.statusCode(), response.body()));
         }
     }
 }

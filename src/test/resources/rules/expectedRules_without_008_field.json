@@ -23,107 +23,6 @@
       ]
     }
   ],
-  "008": [
-    {
-      "target": "instanceTypeId",
-      "description": "Default Unspecified Instance type in case when no 336 field present",
-      "subfield": [],
-      "rules": [
-        {
-          "conditions": [
-            {
-              "type": "set_instance_type_id",
-              "parameter": {
-                "unspecifiedInstanceTypeCode": "zzz"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "target": "source",
-      "description": "Source of instance record",
-      "subfield": [],
-      "rules": [
-        {
-          "conditions": [],
-          "value": "MARC21"
-        }
-      ]
-    },
-    {
-      "target": "languages",
-      "description": "Language code",
-      "subfield": [],
-      "rules": [
-        {
-          "conditions": [
-            {
-              "type": "char_select",
-              "parameter": {
-                "from": 35,
-                "to": 38
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "target": "dates.dateTypeId",
-      "description": "Date type ID",
-      "subfield": [],
-      "createSingleObject": true,
-      "rules": [
-        {
-          "conditions": [
-            {
-              "type": "set_date_type_id"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "target": "dates.date1",
-      "description": "Date 1",
-      "subfield": [],
-      "createSingleObject": true,
-      "rules": [
-        {
-          "conditions": [
-            {
-              "type": "char_select",
-              "parameter": {
-                "from": 7,
-                "to": 11
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "target": "dates.date2",
-      "description": "Date 2",
-      "subfield": [],
-      "createSingleObject": true,
-      "rules": [
-        {
-          "conditions": [
-            {
-              "type": "char_select",
-              "parameter": {
-                "from": 11,
-                "to": 15
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ],
   "010": [
     {
       "entityPerRepeatedSubfield": true,
@@ -279,8 +178,7 @@
                   "type": "concat_subfields_by_name, remove_ending_punc,trim",
                   "parameter": {
                     "subfieldsToConcat": [
-                      "c",
-                      "q"
+                      "c", "q"
                     ],
                     "subfieldsToStopConcat": [
                       "z"
@@ -328,8 +226,7 @@
                   "type": "concat_subfields_by_name, remove_ending_punc,trim",
                   "parameter": {
                     "subfieldsToConcat": [
-                      "q",
-                      "c"
+                      "q", "c"
                     ],
                     "subfieldsToStopConcat": [
                       "a"
@@ -1222,9 +1119,7 @@
             "t",
             "u"
           ],
-          "requiredSubfield": [
-            "a"
-          ],
+          "requiredSubfield": ["a"],
           "applyRulesOnConcatenatedData": true,
           "rules": [
             {
@@ -1248,7 +1143,8 @@
           "target": "contributors.contributorNameTypeId",
           "description": "Type for Personal Name",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [
@@ -1295,7 +1191,8 @@
           "target": "contributors.primary",
           "description": "Primary contributor",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [],
@@ -1326,9 +1223,7 @@
             "t",
             "u"
           ],
-          "requiredSubfield": [
-            "a"
-          ],
+          "requiredSubfield": ["a"],
           "applyRulesOnConcatenatedData": true,
           "rules": [
             {
@@ -1352,7 +1247,8 @@
           "target": "contributors.contributorNameTypeId",
           "description": "Type for Corporate Name",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [
@@ -1399,7 +1295,8 @@
           "target": "contributors.primary",
           "description": "Primary contributor",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [],
@@ -1430,9 +1327,7 @@
             "t",
             "u"
           ],
-          "requiredSubfield": [
-            "a"
-          ],
+          "requiredSubfield": ["a"],
           "applyRulesOnConcatenatedData": true,
           "rules": [
             {
@@ -1456,7 +1351,8 @@
           "target": "contributors.contributorNameTypeId",
           "description": "Type for Meeting Name",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [
@@ -1503,7 +1399,8 @@
           "target": "contributors.primary",
           "description": "Primary contributor",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [],
@@ -2158,10 +2055,7 @@
       "subFieldDelimiter": [
         {
           "value": "~",
-          "subfields": [
-            "a",
-            "b"
-          ]
+          "subfields": ["a","b"]
         }
       ],
       "rules": [
@@ -7632,8 +7526,7 @@
           ]
         }
       ]
-    },
-    {
+    },{
       "indicators": {
         "ind1": "*",
         "ind2": "1"
@@ -9245,8 +9138,7 @@
           ]
         }
       ]
-    },
-    {
+    },{
       "indicators": {
         "ind1": "*",
         "ind2": "2"
@@ -27010,7 +26902,8 @@
           "target": "contributors.contributorNameTypeId",
           "description": "Type for Corporate Name",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [
@@ -27057,7 +26950,8 @@
           "target": "contributors.primary",
           "description": "Primary contributor",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [],
@@ -27111,7 +27005,8 @@
           "target": "contributors.contributorNameTypeId",
           "description": "Type for Meeting Name",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [
@@ -27158,7 +27053,8 @@
           "target": "contributors.primary",
           "description": "Primary contributor",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [],
@@ -27256,7 +27152,8 @@
           "target": "contributors.primary",
           "description": "Primary contributor",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [],
@@ -27341,7 +27238,8 @@
           "target": "contributors.primary",
           "description": "Primary contributor",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [],
@@ -27426,7 +27324,8 @@
           "target": "contributors.primary",
           "description": "Primary contributor",
           "applyRulesOnConcatenatedData": true,
-          "subfield": [],
+          "subfield": [
+          ],
           "rules": [
             {
               "conditions": [],

@@ -3,7 +3,6 @@ package org.folio.service;
 import static org.folio.FolioUpdateBibMappingRulesRamsonsApplication.exitWithMessage;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import lombok.extern.slf4j.Slf4j;
 import org.folio.client.AuthClient;
@@ -18,13 +17,11 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class UpdateMappingRulesService {
-
-    private static final String rule = "010";
     private Configuration configuration;
     private SRMClient srmClient;
     private static final String MARC_BIB = "marc-bib";
 
-    public void start() throws MarcRulesNotFoundException {
+    public void start() {
         configuration = FileWorker.getConfiguration();
         var httpWorker = new HttpWorker(configuration);
         var authClient = new AuthClient(configuration, httpWorker);
@@ -37,11 +34,10 @@ public class UpdateMappingRulesService {
         exitWithMessage("Script execution completed");
     }
 
-    private void updateMappingRules() throws MarcRulesNotFoundException {
+    private void updateMappingRules() {
         JsonNode existingMappingRules = srmClient.retrieveMappingRules(MARC_BIB);
 
-        MappingRulesUtil.updateMappingRules(rule, (ObjectNode) existingMappingRules);
+        MappingRulesUtil.updateMappingRules(existingMappingRules);
         srmClient.updateMappingRules(existingMappingRules, MARC_BIB);
-        log.info("Mapping rules for 010$z field have been successfully updated on the target environment for the following MARC fields: {}", rule);
     }
 }

@@ -33,6 +33,8 @@ public class SRMClient {
         var request = httpWorker.constructPUTRequest(format(MAPPING_RULES, recordType), mappingRules.toString());
         var response = httpWorker.sendRequest(request);
 
-        log.info("Mapping rules for 010$z field have been successfully updated on the target environment for the following MARC fields: {}", response.statusCode());
+        httpWorker.verifyStatus(response, 200, "Failed to update mapping rules on the target environment");
+
+        log.info("Mapping rules have been successfully updated on the target environment");
     }
 }
